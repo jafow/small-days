@@ -1,0 +1,16 @@
+html {
+	margin: 0 auto;
+}
+body {
+text-align: center;
+}
+.container {
+	height: 400px;
+	width: 100%;
+	}
+.event {
+	background-color: bisque;
+}
+.make {
+	background-color: cornflowerblue;
+}
