@@ -1,0 +1,44 @@
+{
+  "name": "small-days",
+  "version": "1.0.0",
+  "description": "Ideas and inspiration for parents of easily-bored toddlers",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "async": "^1.5.2",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-react": "^6.5.0",
+    "babelify": "^7.2.0",
+    "browserify": "^13.0.0",
+    "cheerio": "^0.20.0",
+    "express": "^4.13.4",
+    "gulp": "^3.9.1",
+    "gulp-notify": "^2.2.0",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "request": "^2.69.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^1.10.3",
+    "eslint-config-airbnb": "^5.0.1",
+    "eslint-plugin-react": "^3.16.1",
+    "watchify": "^3.7.0"
+  },
+  "scripts": {
+    "start": "node node_modules/.bin/gulp",
+    "server": "node ./server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/10000highfives/small-days.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Jared Fowler (@10000highfives)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/10000highfives/small-days/issues"
+  },
+  "homepage": "https://github.com/10000highfives/small-days#readme"
+}
