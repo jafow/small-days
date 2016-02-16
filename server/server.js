@@ -1,6 +1,13 @@
 const express = require('express');
 const app = express();
+const path = require('path');
 const eventController = require('./controllers/eventController');
+
+app.use(express.static(path.join(__dirname + './../')));
+
+app.get('/', (req,res) => {
+	res.sendFile('index.html');
+});
 
 app.get('/events', eventController.getEvents);
 
