@@ -46,7 +46,7 @@ eventController.getCrafts = (req,res) => {
 		$craftIdea.each((index, idea) => {
 			let $idea = $(idea);
 			let returnedCraftObj = {};
-			if (!$idea.attr('title')) return; 
+			if (!$idea.attr('title')) return;
 			returnedCraftObj.title = $idea.attr('title');
 			returnedCraftObj.description = $idea.parent('li').text();
 			returnedCraftObj.link = $idea.attr('href');
@@ -54,8 +54,13 @@ eventController.getCrafts = (req,res) => {
 		});
 
 		let filterEmpty = resultObjects.filter((e) => {
-			if (e.title !== 'undefined')
-			return e;
+			if (e.title !== 'undefined') {
+				return e;
+			}
+		}).filter((goodTitles) => {
+			if (goodTitles.title.slice(0, 17) !== 'Permanent Link to') {
+				return goodTitles;
+			}
 		});
 		res.json(filterEmpty);
 	});
