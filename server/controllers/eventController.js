@@ -65,6 +65,6 @@ eventController.getCrafts = (req,res) => {
 		res.json(filterEmpty);
 	});
 
-}
+};
 
 module.exports = eventController;
