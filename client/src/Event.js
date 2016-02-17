@@ -4,8 +4,14 @@ import Details from './Details'
 export default React.createClass({
 	getInitialState() {
 		return {
-			events: []
+			events: [],
+			showEvent: null
 		}
+	},
+
+	showDetails() {
+		let showEvent = this.state.events[0];
+		this.setState({showEvent: showEvent});
 	},
 
 	componentDidMount() {
@@ -14,23 +20,27 @@ export default React.createClass({
 		$.get('/events').done((data) => {
 			data.forEach((e) => getEvents.push(e));
 			that.setState({ events: getEvents });
-
 		});
 	},
+
 	render() {
-		let singleEvent = this.state.events[0];
-		for (let details in singleEvent) {
-			return <Details key={details} where={singleEvent.where} when={singleEvent.when} what={singleEvent.what} cost={singleEvent.cost} />
+		let detail = <Details />
+		//Render event onClick rather than on Load
+		if(this.state.showEvent) {
+			detail = this.state.showEvent;
+			for (let info in detail) {
+				return <Details key={info} where={detail.where} when={detail.when} what={detail.what} cost={detail.cost} />
+			}
 		}
 
-		//console.log('single event ', singleEvent);
 		return (
 			<div>
+			<button	onClick={this.showDetails}>Find An Event</button>
 				<h2>Go</h2>
 				<div>
-					{singleEvent}
+					{detail}
 				</div>
 			</div>
 		)
 	}
-})
+});
