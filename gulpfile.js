@@ -13,7 +13,7 @@ function handleErrors() {
 }
 
 function buildScript(file) {
-	var props = {		
+	var props = {
 		entries : ['./client/src/' + file],
 		debug : true,
 		transform : [
@@ -45,4 +45,4 @@ function buildScript(file) {
 
 // run 'scripts' task first, then watch for future changes
 gulp.task('default', ['scripts']);
-gulp.task('scripts', buildScript.bind(this, 'app.js'));
+gulp.task('scripts', buildScript.bind(this, 'index.js'));

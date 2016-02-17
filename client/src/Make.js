@@ -5,13 +5,28 @@ export default React.createClass({
 	getInitialState() {
 		return {
 			craftList: [],
-			firstCraft: null
+			firstCraft: null,
+			currentFocus: 0
 		}
 	},
 
 	showCraft() {
-		let firstCraft = this.state.craftList[0];
+		let firstCraft = this.state.craftList[this.state.currentFocus];
 		this.setState({firstCraft: firstCraft});
+	},
+
+	forwardOne() {
+		this.state.currentFocus += 1;
+		this.showCraft();
+	},
+
+	backOne() {
+		if (this.state.currentFocus > 1) {
+			this.state.currentFocus -= 1;
+			this.showCraft();
+		} else {
+			this.showCraft();
+		}
 	},
 
 	componentDidMount() {
