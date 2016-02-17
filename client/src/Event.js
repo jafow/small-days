@@ -5,13 +5,25 @@ export default React.createClass({
 	getInitialState() {
 		return {
 			events: [],
-			showEvent: null
+			showEvent: null,
+			currentFocus: 0
 		}
 	},
 
 	showDetails() {
-		let showEvent = this.state.events[0];
+		//this.state.currentFocus += 1;
+		let showEvent = this.state.events[this.state.currentFocus];
 		this.setState({showEvent: showEvent});
+	},
+
+	forwardOne() {
+		this.state.currentFocus += 1;
+		this.showDetails();
+	},
+
+	backOne() {
+		this.state.currentFocus -= 1;
+		this.showDetails();
 	},
 
 	componentDidMount() {
@@ -36,6 +48,8 @@ export default React.createClass({
 		return (
 			<div>
 			<button	onClick={this.showDetails}>Find An Event</button>
+			<button onClick={this.forwardOne}>Next Event</button>
+			<button onClick={this.backOne}>Previous Event</button>
 				<h2>Go</h2>
 				<div>
 					{detail}
