@@ -19,16 +19,16 @@ export default React.createClass({
 		let getCrafts = [];
 		$.get('/crafts').done((data) => {
 			data.forEach((obj) => getCrafts.push(obj));
-			that.setState({ firstCraft: getCrafts });
+			that.setState({ craftList: getCrafts });
 		});
 	},
 
 	render() {
 		let craft = <Craft />
 		if (this.state.firstCraft) {
-			craft = this.state.firstCraft[0];
+			craft = this.state.firstCraft;
 			for (let item in craft) {
-				return <Craft key={item} title={craft.title} description={craft.description} link={craft.link} />
+				return <Craft key={item} title={craft.title} description={craft.description} link={craft.link} linkLabel={`Read more here: `}/>
 			}
 		}
 

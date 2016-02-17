@@ -8,6 +8,8 @@ export default React.createClass({
 				<ul>
 					<li>{this.props.title}</li>
 					<li>{this.props.description}</li>
+					<li>{this.props.linkLabel}<a href={this.props.link}>{this.props.link}</a></li>
+
 				</ul>
 			</div>
 		)
