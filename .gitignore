@@ -1,3 +1,4 @@
 node_modules
 npm-debug.log
 jquery-2.2.0.js
+build/bundle.js
