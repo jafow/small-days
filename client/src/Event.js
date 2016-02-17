@@ -25,6 +25,7 @@ export default React.createClass({
 
 	render() {
 		let detail = <Details />
+		console.log('first event ob ', this.state.events[0]);
 		//Render event onClick rather than on Load
 		if(this.state.showEvent) {
 			detail = this.state.showEvent;
