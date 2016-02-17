@@ -6,9 +6,22 @@
 		<link rel="stylesheet" href="./client/styles.css" media="screen" charset="utf-8">
 	</head>
 	<body>
-		<div id="content">
+		<script>
+		(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=1744742842422387";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+		</script>
+		<script type="text/javascript" src="./client/fb-login.js"></script>
 
-		</div>
+		<div id="fb-root"></div>
+		<div class="fb-like" data-share="false" data-width="450" data-show-faces="false"></div>		
+		<div id="status"></div>
+		<div id="content"></div>
+
 		<script src="./client/src/jquery-2.2.0.js"></script>
 		<script src="./build/bundle.js"></script>
 	</body>
