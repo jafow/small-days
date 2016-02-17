@@ -4,20 +4,17 @@ import { Link } from 'react-router'
 import Event from './Event'
 import Make from './Make'
 
-const App = React.createClass({
+export default React.createClass({
 
 	render () {
 		return (
 			<div className="container">
 				<ul>
-					<li><span className='event'><Link to="/go" >Go</Link></span></li>
-					<li><span className='make'><Link to="/make">Make</Link></span></li>
+					<li><Link to="/go" >Go</Link></li>
+					<li><Link to="/make">Make</Link></li>
 				</ul>
 				{this.props.children}
 			</div>
 		);
 	}
 });
-
-
-ReactDOM.render(<App />, document.getElementById('content'));
