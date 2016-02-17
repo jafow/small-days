@@ -6,10 +6,10 @@ export default React.createClass({
 		return (
 			<div>
 				<ul>
-					<li>What: {this.props.what}</li>
-					<li>Where: {this.props.where}</li>
-					<li>When: {this.props.when}</li>
-					<li>How Much: {this.props.cost}</li>
+					<li>{this.props.what}</li>
+					<li>{this.props.where}</li>
+					<li>{this.props.when}</li>
+					<li>{this.props.cost}</li>
 				</ul>
 			</div>
 		)

@@ -10,6 +10,7 @@ app.get('/', (req,res) => {
 });
 
 app.get('/events', eventController.getEvents);
+app.get('/crafts', eventController.getCrafts);
 
 app.listen(3300, () => {
 	console.log('listening on port 3300');

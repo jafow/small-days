@@ -1,17 +1,21 @@
 'use strict';
 const cheerio = require('cheerio');
 const request = require('request');
-const URL = 'http://redtri.com/events/los-angeles/?utm_source=main-nav&utm_medium=events-LA&utm_campaign=main-nav-events-LA';
-
+const eventsURL = 'http://redtri.com/events/los-angeles/?utm_source=main-nav&utm_medium=events-LA&utm_campaign=main-nav-events-LA';
+const craftsURL = 'http://handsonaswegrow.com/30-creative-toddler-craft-art-projects/';
 
 const eventController = {};
 
+const trimInput = (str) => {
+	return str.trim();
+};
+
 eventController.getEvents = (req,res) => {
-	request(URL, (err, response, body) => {
+	request(eventsURL, (err, response, body) => {
 		const $ = cheerio.load(body);
 		const resultArray = [];
 
-		if (err) throw new Error('Error on GET ', err);
+		if (err) throw new Error('Error on GET to eventsURL', err);
 
 		const $eventBody = $('.event-body');
 
@@ -30,8 +34,32 @@ eventController.getEvents = (req,res) => {
 	});
 };
 
-const trimInput = (str) => {
-	return str.trim();
-};
+eventController.getCrafts = (req,res) => {
+	request(craftsURL, (err, response, body) => {
+		const $ = cheerio.load(body);
+		const resultObjects = [];
+
+		if (err) throw new Error('Error on GET to craftsURL ', err);
+
+		const $craftIdea = $('li').children('a');
+
+		$craftIdea.each((index, idea) => {
+			let $idea = $(idea);
+			let returnedCraftObj = {};
+			if (!$idea.attr('title')) return; 
+			returnedCraftObj.title = $idea.attr('title');
+			returnedCraftObj.description = $idea.parent('li').text();
+			returnedCraftObj.link = $idea.attr('href');
+			resultObjects.push(returnedCraftObj);
+		});
+
+		let filterEmpty = resultObjects.filter((e) => {
+			if (e.title !== 'undefined')
+			return e;
+		});
+		res.json(filterEmpty);
+	});
+
+}
 
 module.exports = eventController;
