@@ -2,11 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Event from './Event'
 import Make from './Make'
-//
-// const React = require('react');
-// const ReactDOM = require('react-dom');
-// const Event = require('./event.js');
-// const Make = require('./Make.js');
 
 const App = React.createClass({
 

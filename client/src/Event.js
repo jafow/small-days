@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Details from './Details'
 
 export default React.createClass({
 	getInitialState() {
@@ -12,16 +12,23 @@ export default React.createClass({
 		let that = this;
 		let getEvents = [];
 		$.get('/events').done((data) => {
-				getEvents = data.map((e) => e);
+			data.forEach((e) => getEvents.push(e));
+			that.setState({ events: getEvents });
+
 		});
-		that.setState({ events: getEvents });
 	},
 	render() {
+		let singleEvent = this.state.events[0];
+		for (let details in singleEvent) {
+			return <Details key={details} where={singleEvent.where} when={singleEvent.when} what={singleEvent.what} cost={singleEvent.cost} />
+		}
+
+		//console.log('single event ', singleEvent);
 		return (
 			<div>
 				<h2>Go</h2>
 				<div>
-				{this.state.events}
+					{singleEvent}
 				</div>
 			</div>
 		)
