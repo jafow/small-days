@@ -4,6 +4,7 @@ import { Router, Route, hashHistory } from 'react-router'
 import App from './app'
 import Event from './Event'
 import Make from './Make'
+import Detail from './Details'
 
 render ((
 	<Router history={hashHistory} >

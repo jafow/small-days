@@ -15,10 +15,10 @@
 			fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));
 		</script>
-		<script type="text/javascript" src="./client/fb-login.js"></script>
+		<!-- <script type="text/javascript" src="./client/fb-login.js"></script> -->
 
 		<div id="fb-root"></div>
-		<div class="fb-like" data-share="false" data-width="450" data-show-faces="false"></div>		
+		<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
 		<div id="status"></div>
 		<div id="content"></div>
 

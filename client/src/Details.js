@@ -4,7 +4,7 @@ import Event from './Event'
 export default React.createClass({
 	render() {
 		return (
-			<div>
+			<div>		
 				<ul>
 					<li>{this.props.what}</li>
 					<li>{this.props.where}</li>

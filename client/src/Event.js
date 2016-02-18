@@ -11,7 +11,7 @@ export default React.createClass({
 	},
 
 	showDetails() {
-		//this.state.currentFocus += 1;
+		this.state.currentFocus += 1;
 		let showEvent = this.state.events[this.state.currentFocus];
 		this.setState({showEvent: showEvent});
 	},
@@ -31,26 +31,22 @@ export default React.createClass({
 		let getEvents = [];
 		$.get('/events').done((data) => {
 			data.forEach((e) => getEvents.push(e));
-			that.setState({ events: getEvents });
+			that.setState({ events: getEvents, showEvent: getEvents[0] });
 		});
 	},
 
 	render() {
-		let detail = <Details />
+		//let detail = <Details />
 		//Render event onClick rather than on Load
-		if(this.state.showEvent) {
-			detail = this.state.showEvent;
+		//if(this.state.showEvent) {
+			let detail = this.state.showEvent;
 			for (let info in detail) {
-				return <Details key={info} where={detail.where} when={detail.when} what={detail.what} cost={detail.cost} />
+				return <Details key={info} where={detail.where} when={detail.when} what={detail.what} cost={detail.cost} forwardOne={this.forwardOne} backOne={this.backOne} />
 			}
-		}
+
 
 		return (
 			<div>
-			<button	onClick={this.showDetails}>Find An Event</button>
-			<button onClick={this.forwardOne}>Next Event</button>
-			<button onClick={this.backOne}>Previous Event</button>
-				<h2>Go</h2>
 				<div>
 					{detail}
 				</div>

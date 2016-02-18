@@ -10,10 +10,10 @@ export default React.createClass({
 		return (
 			<div className="container">
 				<ul>
-					<li><Link to="/go" >Go</Link></li>
-					<li><Link to="/make">Make</Link></li>
+					<li><Link to="/go" className="link">Go</Link></li>
+					<li><Link to="/make" className="link">Make</Link></li>
 				</ul>
-				{this.props.children}
+					{this.props.children}
 			</div>
 		);
 	}
