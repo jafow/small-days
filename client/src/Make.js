@@ -1,6 +1,7 @@
 import React from 'react'
 import Craft from './Craft'
 
+
 export default React.createClass({
 	getInitialState() {
 		return {
@@ -49,8 +50,11 @@ export default React.createClass({
 
 		return (
 			<div>
-			<button onClick={this.showCraft}>Show ideas</button>
-				<h2>Make</h2>
+			<div>
+				<button onClick={this.backOne}>Previous</button>
+				<button onClick={this.showCraft}>Show ideas</button>
+				<button onClick={this.forwardOne}>Next</button>
+				</div>
 				<div>
 					{craft}
 				</div>

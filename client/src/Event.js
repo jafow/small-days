@@ -1,5 +1,6 @@
 import React from 'react'
 import Details from './Details'
+import NavLink from './NavLink'
 
 export default React.createClass({
 	getInitialState() {
@@ -22,8 +23,12 @@ export default React.createClass({
 	},
 
 	backOne() {
-		this.state.currentFocus -= 1;
-		this.showDetails();
+		if (this.state.currentFocus > 1) {
+			this.state.currentFocus -= 1;
+			this.showDetails();
+		} else {
+			showDetails()
+		}
 	},
 
 	componentDidMount() {
@@ -31,22 +36,28 @@ export default React.createClass({
 		let getEvents = [];
 		$.get('/events').done((data) => {
 			data.forEach((e) => getEvents.push(e));
-			that.setState({ events: getEvents, showEvent: getEvents[0] });
+			that.setState({ events: getEvents });
 		});
 	},
 
 	render() {
-		//let detail = <Details />
+		let detail = <Details />
 		//Render event onClick rather than on Load
-		//if(this.state.showEvent) {
+		if(this.state.showEvent) {
 			let detail = this.state.showEvent;
 			for (let info in detail) {
 				return <Details key={info} where={detail.where} when={detail.when} what={detail.what} cost={detail.cost} forwardOne={this.forwardOne} backOne={this.backOne} />
 			}
-
+		}
 
 		return (
 			<div>
+				<ul>
+					<li><NavLink onClick={this.backOne}>Previous</NavLink></li>
+					<li><NavLink onClick={this.showDetails}>Show ideas</NavLink></li>
+					<li><NavLink onClick={this.forwardOne}>Next</NavLink></li>
+				</ul>
+				
 				<div>
 					{detail}
 				</div>

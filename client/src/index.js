@@ -5,12 +5,16 @@ import App from './app'
 import Event from './Event'
 import Make from './Make'
 import Detail from './Details'
+import Craft from './Craft'
 
 render ((
 	<Router history={hashHistory} >
 		<Route path="/" component={App} >
-			<Route path="/go" component={Event} />
-			<Route path="/make" component={Make} />
+			<Route path="/go" component={Event}>
+				<Route path="/go/details" compent={Detail} />
+			</Route>
+
+			<Route path="/make" component={Make}></Route>
 		</Route>
 	</Router>
 ), document.getElementById('content'))
