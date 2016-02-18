@@ -6,9 +6,9 @@ export default React.createClass({
 		return (
 			<div>
 				<ul>
-					<li>{this.props.title}</li>
-					<li>{this.props.description}</li>
-					<li>{this.props.linkLabel}<a href={this.props.link}>{this.props.link}</a></li>
+					<li className="details">{this.props.title}</li>
+					<li className="details-sm">{this.props.description}</li>
+					<li className="details-sm">{this.props.linkLabel}<a href={this.props.link}>{this.props.link}</a></li>
 
 				</ul>
 			</div>

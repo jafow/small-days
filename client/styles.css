@@ -3,10 +3,14 @@ html {
 }
 
 body {
-text-align: center;
+	background-color: cornflowerblue;
 }
 
+li {
+	list-style-type: none;
+}
 .container {
+	text-align: center;
 	height: 100%;
 	width: 100%;
 }
@@ -15,10 +19,44 @@ text-align: center;
 	background-color: bisque;
 }
 
-.make {
-	background-color: cornflowerblue;
+.contrast {
+	color: #fff;
 }
 
 .link {
-	margin: 10px; 
+	margin: 10px;
+	color: bisque;
+}
+.nav {
+	height: 50px;
+	font-size: 60px;
+}
+
+
+.details {
+	color: #fff;
+	font-size: 18px;
+}
+.details-sm {
+	color: #fff;
+	font-size: 14px;
+}
+
+.label {
+	margin-top: 10px;
+	color: #000;
+	font-size: 20px;
+	font-weight: 700;
+}
+
+ul {
+	margin-top: 25px; 
+}
+
+.btn {
+	border: .5px solid darkgray;
+}
+
+fb {
+	text-align: right;
 }

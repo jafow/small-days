@@ -12,7 +12,6 @@ export default React.createClass({
 	},
 
 	showDetails() {
-		this.state.currentFocus += 1;
 		let showEvent = this.state.events[this.state.currentFocus];
 		this.setState({showEvent: showEvent});
 	},
@@ -27,7 +26,7 @@ export default React.createClass({
 			this.state.currentFocus -= 1;
 			this.showDetails();
 		} else {
-			showDetails()
+			this.showDetails()
 		}
 	},
 
@@ -52,12 +51,12 @@ export default React.createClass({
 
 		return (
 			<div>
-				<ul>
-					<li><NavLink onClick={this.backOne}>Previous</NavLink></li>
-					<li><NavLink onClick={this.showDetails}>Show ideas</NavLink></li>
-					<li><NavLink onClick={this.forwardOne}>Next</NavLink></li>
-				</ul>
-				
+				<div>
+					<button onClick={this.backOne} className="btn btn-group btn-default">Previous</button>
+					<button onClick={this.showDetails} className="btn btn-group btn-default">Show ideas</button>
+					<button onClick={this.forwardOne} className="btn btn-group btn-default">Next</button>
+				</div>
+
 				<div>
 					{detail}
 				</div>

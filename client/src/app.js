@@ -11,8 +11,9 @@ export default React.createClass({
 		return (
 			<div className="container">
 				<ul>
-					<li><NavLink to="/go" className="link">Go</NavLink></li>
-					<li><NavLink to="/make" className="link">Make</NavLink></li>
+
+				<span className="contrast"><li><NavLink to="/go" className="link nav">Go</NavLink></li></span>
+					<li><NavLink to="/make" className="link nav">Make</NavLink></li>
 				</ul>
 					{this.props.children}
 			</div>

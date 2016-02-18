@@ -50,10 +50,10 @@ export default React.createClass({
 
 		return (
 			<div>
-			<div>
-				<button onClick={this.backOne}>Previous</button>
-				<button onClick={this.showCraft}>Show ideas</button>
-				<button onClick={this.forwardOne}>Next</button>
+				<div>
+					<button onClick={this.backOne} className="btn btn-group btn-default">Previous</button>
+					<button onClick={this.showCraft} className="btn btn-group btn-default">Show ideas</button>
+					<button onClick={this.forwardOne} className="btn btn-group btn-default">Next</button>
 				</div>
 				<div>
 					{craft}

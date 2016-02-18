@@ -10,11 +10,8 @@ import Craft from './Craft'
 render ((
 	<Router history={hashHistory} >
 		<Route path="/" component={App} >
-			<Route path="/go" component={Event}>
-				<Route path="/go/details" compent={Detail} />
-			</Route>
-
-			<Route path="/make" component={Make}></Route>
+			<Route path="/go" component={Event}/>
+			<Route path="/make" component={Make} />
 		</Route>
 	</Router>
 ), document.getElementById('content'))
